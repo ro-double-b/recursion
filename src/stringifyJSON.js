@@ -21,10 +21,13 @@ var stringifyJSON = function(obj) {
 			return '[' + arrayValue + ']'
 		}
 	} else {
-		var keys = Object.keys(obj)
-		if(keys[0] === undefined) {
-			return '{}'
+		var objKeys = Object.keys(obj)
+		var objString = ''
+		var objArray = []
+		for(var i = 0; i < objKeys.length; i++) {
+			objString = '"' + objKeys[i] + '":' + stringifyJSON(obj[objKeys[i]])
 		}
+		return '{' + objString + '}'
 	}
 };
 
