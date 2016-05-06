@@ -13,6 +13,12 @@ var stringifyJSON = function(obj) {
 	else if(Array.isArray(obj)) {
 		if(obj[0] === undefined) {
 			return '[]'
+		} else {
+			var arrayValue = []
+			for(var i = 0; i < obj.length; i++) {
+				arrayValue.push(stringifyJSON(obj[i]))
+			}
+			return '[' + arrayValue + ']'
 		}
 	}
 };
