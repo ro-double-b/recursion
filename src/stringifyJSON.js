@@ -20,6 +20,11 @@ var stringifyJSON = function(obj) {
 			}
 			return '[' + arrayValue + ']'
 		}
+	} else {
+		var keys = Object.keys(obj)
+		if(keys[0] === undefined) {
+			return '{}'
+		}
 	}
 };
 
