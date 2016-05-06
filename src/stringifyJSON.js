@@ -6,6 +6,9 @@
 var stringifyJSON = function(obj) {
 	if(typeof(obj) === 'number' || obj === null || typeof(obj) === 'boolean') {
 		return '' + obj + ''
+	} 
+	else if(typeof(obj) === 'string') {
+		return '"' + obj + '"'
 	}
 };
 
