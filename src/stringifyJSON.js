@@ -10,6 +10,11 @@ var stringifyJSON = function(obj) {
 	else if(typeof(obj) === 'string') {
 		return '"' + obj + '"'
 	}
+	else if(Array.isArray(obj)) {
+		if(obj[0] === undefined) {
+			return '[]'
+		}
+	}
 };
 
 
