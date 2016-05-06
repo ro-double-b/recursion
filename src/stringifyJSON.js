@@ -20,14 +20,16 @@ var stringifyJSON = function(obj) {
 			}
 			return '[' + arrayValue + ']'
 		}
-	} else {
+	} 
+	else if(obj instanceof Object) {
 		var objKeys = Object.keys(obj)
 		var objString = ''
 		var objArray = []
 		for(var i = 0; i < objKeys.length; i++) {
 			objString = '"' + objKeys[i] + '":' + stringifyJSON(obj[objKeys[i]])
+			objArray.push(objString)
 		}
-		return '{' + objString + '}'
+		return '{' + objArray.join(',') + '}'
 	}
 };
 
