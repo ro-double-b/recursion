@@ -26,8 +26,12 @@ var stringifyJSON = function(obj) {
 		var objString = ''
 		var objArray = []
 		for(var i = 0; i < objKeys.length; i++) {
-			objString = '"' + objKeys[i] + '":' + stringifyJSON(obj[objKeys[i]])
-			objArray.push(objString)
+			if(obj[objKeys[i]] instanceof Function || typeof(obj[objKeys[i]]) === undefined) {
+				return '{}'
+			} else {
+				objString = '"' + objKeys[i] + '":' + stringifyJSON(obj[objKeys[i]])
+				objArray.push(objString)
+			}
 		}
 		return '{' + objArray.join(',') + '}'
 	}
